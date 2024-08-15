@@ -68,8 +68,7 @@
             <th>작성자</th>
             <th>작성일시</th>
             <th>조회수</th>
-        </tr>
-        </thead>
+        </tr>t
         <tbody id="boardTbody">
         </tbody>
     </table>
@@ -186,7 +185,7 @@
 <%--    let OFFSET = 0;--%>
 <%--    let SEARCH_WORD = '';--%>
 
-<%--    window.onload = function () {--%>
+    window.onload = function () {
 <%--        // 글 목록--%>
 <%--        listBoard();--%>
 
@@ -197,14 +196,14 @@
 <%--            listBoard();--%>
 <%--        }--%>
 
-<%--        // 글 등록 모달--%>
-<%--        document.querySelector("#btnInsertPage").onclick = function () {--%>
-<%--            document.querySelector("#titleInsert").value = "";--%>
-<%--            document.querySelector("#contentInsert").value = "";--%>
-<%--            // bootstrap 5 model show--%>
-<%--            let modal = new bootstrap.Modal(document.querySelector("#insertBoardModal"), {keyboard: false});--%>
-<%--            modal.show();--%>
-<%--        }--%>
+        // 글 등록 모달
+        document.querySelector("#btnInsertPage").onclick = function () {
+            document.querySelector("#titleInsert").value = "";
+            document.querySelector("#contentInsert").value = "";
+            // bootstrap 5 model show
+            let modal = new bootstrap.Modal(document.querySelector("#insertBoardModal"), {keyboard: false});
+            modal.show();
+        }
 
 
 <%--        // 글 등록--%>
@@ -245,7 +244,7 @@
 <%--                    console.log("삭제 취소");--%>
 <%--            })--%>
 <%--        }--%>
-<%--    }--%>
+    }
 
 <%--    async function listBoard() {--%>
 <%--        let url = "/boards/list"--%>
