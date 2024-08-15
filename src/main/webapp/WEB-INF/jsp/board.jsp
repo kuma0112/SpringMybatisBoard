@@ -206,12 +206,12 @@
         }
 
 
-<%--        // 글 등록--%>
-<%--        document.querySelector("#btnBoardInsert").onclick = function () {--%>
-<%--            if (document.querySelector("#titleInsert").value.length > 0 && document.querySelector("#contentInsert").value.length > 0) {--%>
-<%--                insertBoard();--%>
-<%--            }--%>
-<%--        }--%>
+        // 글 등록
+        document.querySelector("#btnBoardInsert").onclick = function () {
+            if (document.querySelector("#titleInsert").value.length > 0 && document.querySelector("#contentInsert").value.length > 0) {
+                insertBoard();
+            }
+        }
 
 <%--        // 글 수정 모달--%>
 <%--        document.querySelector("#btnBoardUpdateForm").onclick = function () {--%>
