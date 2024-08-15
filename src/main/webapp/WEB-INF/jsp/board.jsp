@@ -78,32 +78,30 @@
     <button class="btn btn-sm btn-primary" id="btnInsertPage">글쓰기</button>
 </div>
 <!-- Insert modal -->
-<%--<div class="modal" tabindex="-1" id="insertBoardModal">--%>
-<%--    <div class="modal-dialog modal-lg">--%>
-<%--        <div class="modal-content">--%>
-<%--            <div class="modal-header">--%>
-<%--                <h4 class="modal-title">글 쓰기</h4>--%>
-<%--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
-<%--            </div>--%>
-<%--            <div class="modal-body">--%>
+<div class="modal" tabindex="-1" id="insertBoardModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">글 쓰기</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="titleInsert" class="form-label">제목</label>
+                    <input type="text" class="form-control" id="titleInsert">
+                </div>
+                <div class="mb-3">
+                    <label for="contentInsert" class="form-label">내용</label>
+                    <textarea class="form-control" id="contentInsert" rows="10"></textarea>
+                </div>
+                <button id="btnBoardInsert" class="btn btn-sm btn-primary btn-outline" data-bs-dismiss="modal"
+                        type="button">등록
+                </button>
 
-<%--                <div class="mb-3">--%>
-<%--                    <label for="titleInsert" class="form-label">제목</label>--%>
-<%--                    <input type="text" class="form-control" id="titleInsert">--%>
-<%--                </div>--%>
-<%--                <div class="mb-3">--%>
-<%--                    <label for="contentInsert" class="form-label">내용</label>--%>
-<%--                    <textarea class="form-control" id="contentInsert" rows="10"></textarea>--%>
-<%--                </div>--%>
-
-<%--                <button id="btnBoardInsert" class="btn btn-sm btn-primary btn-outline" data-bs-dismiss="modal"--%>
-<%--                        type="button">등록--%>
-<%--                </button>--%>
-
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- detail modal -->
 <%--<div class="modal" tabindex="-1" id="detailBoardModal">--%>
 <%--    <div class="modal-dialog modal-lg">--%>
