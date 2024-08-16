@@ -228,12 +228,12 @@
             modal.show();
         }
 
-<%--        // 글 수정--%>
-<%--        document.querySelector("#btnBoardUpdate").onclick = function () {--%>
-<%--            if (document.querySelector("#titleUpdate").value.length > 0 && document.querySelector("#contentUpdate").value.length > 0) {--%>
-<%--                updateBoard();--%>
-<%--            }--%>
-<%--        }--%>
+        // 글 수정
+        document.querySelector("#btnBoardUpdate").onclick = function () {
+            if (document.querySelector("#titleUpdate").value.length > 0 && document.querySelector("#contentUpdate").value.length > 0) {
+                updateBoard();
+            }
+        }
 
 <%--        // 글 삭제--%>
 <%--        document.querySelector("#btnBoardDeleteConfirm").onclick = function () {--%>
