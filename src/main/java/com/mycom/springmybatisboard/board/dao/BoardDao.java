@@ -19,4 +19,7 @@ public interface BoardDao {
     int insertBoard(BoardDto boardDto);
     int updateBoard(BoardDto boardDto);
     int deleteBoard(int boardId);
+
+    // 조회수 처리
+    int countBoardUserRead(BoardParamDto boardParamDto);
 }

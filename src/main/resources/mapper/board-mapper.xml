@@ -51,4 +51,10 @@
     <delete id="deleteBoard" parameterType="int">
         delete from board where board_id = #{boardId}
     </delete>
+
+    <!-- 조회수 -->
+    <select id="countBoardUserRead" parameterType="map" >
+    <!-- 0아니면 1이 결과로 나올 것 -->
+        select count(*) from board_user_read where board_id = #{boardId} and user_seq = #{userSeq}
+    </select>
 </mapper>
