@@ -368,30 +368,30 @@
         }
     }
 
-<%--    async function updateBoard() {--%>
-<%--        let boardId = document.querySelector("#updateBoardModal").getAttribute("data-boardId");--%>
-<%--        let urlParams = new URLSearchParams({--%>
-<%--            boardId : boardId,--%>
-<%--            title: document.querySelector("#titleUpdate").value,--%>
-<%--            content: document.querySelector("#contentUpdate").value--%>
-<%--        });--%>
-<%--        let url = "/boards/update";--%>
+    async function updateBoard() {
+        let boardId = document.querySelector("#updateBoardModal").getAttribute("data-boardId");
+        let urlParams = new URLSearchParams({
+            boardId : boardId,
+            title: document.querySelector("#titleUpdate").value,
+            content: document.querySelector("#contentUpdate").value
+        });
+        let url = "/boards/update";
 
-<%--        let fetchOptions = {--%>
-<%--            method: 'POST',--%>
-<%--            body: urlParams--%>
-<%--        }--%>
+        let fetchOptions = {
+            method: 'POST',
+            body: urlParams
+        }
 
-<%--        let response = await fetch(url, fetchOptions);--%>
-<%--        let data = await response.json();--%>
+        let response = await fetch(url, fetchOptions);
+        let data = await response.json();
 
-<%--        if (data.result == "success") {--%>
-<%--            alertify.success("글이 수정되었습니다.")--%>
-<%--            listBoard(data.dto);--%>
-<%--        } else if (data.result == "fail") {--%>
-<%--            alert("글 수정 과정에서 오류가 발생했습니다.")--%>
-<%--        }--%>
-<%--    }--%>
+        if (data.result == "success") {
+            alertify.success("글이 수정되었습니다.")
+            listBoard(data.dto);
+        } else if (data.result == "fail") {
+            alert("글 수정 과정에서 오류가 발생했습니다.")
+        }
+    }
 
 <%--    async function deleteBoard() {--%>
 <%--        let boardId = document.querySelector("#detailBoardModal").getAttribute("data-boardId");--%>
