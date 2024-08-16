@@ -393,22 +393,22 @@
         }
     }
 
-<%--    async function deleteBoard() {--%>
-<%--        let boardId = document.querySelector("#detailBoardModal").getAttribute("data-boardId");--%>
+    async function deleteBoard() {
+        let boardId = document.querySelector("#detailBoardModal").getAttribute("data-boardId");
 
-<%--        let url = "/boards/delete/" + boardId;--%>
+        let url = "/boards/delete/" + boardId;
 
-<%--        let response = await fetch(url);--%>
-<%--        let data = await response.json();--%>
+        let response = await fetch(url);
+        let data = await response.json();
 
-<%--        if (data.result == "success") {--%>
-<%--            alertify.success("글이 삭제되었습니다.")--%>
-<%--            listBoard(data.dto);--%>
-<%--        } else if (data.result == "fail") {--%>
-<%--            alert("글 삭제 과정에서 오류가 발생했습니다.")--%>
-<%--        }--%>
-<%--    }--%>
+        if (data.result == "success") {
+            alertify.success("글이 삭제되었습니다.")
+            listBoard(data.dto);
+        } else if (data.result == "fail") {
+            alert("글 삭제 과정에서 오류가 발생했습니다.")
+        }
+    }
 
-<%--</script>--%>
+</script>
 </body>
 </html>
