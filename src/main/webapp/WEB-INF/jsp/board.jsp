@@ -297,18 +297,18 @@
         makePaginationHtml(LIST_ROW_COUNT, PAGE_LINK_COUNT, CURRENT_PAGE_INDEX, TOTAL_LIST_ITEM_COUNT, paginationWrapper)
     }
 
-<%--    async function detailBoard(boardId) {--%>
-<%--        let url = "/boards/detail/" + boardId;--%>
-<%--        let response = await fetch(url);--%>
-<%--        let data = await response.json();--%>
+    async function detailBoard(boardId) {
+        let url = "/boards/detail/" + boardId;
+        let response = await fetch(url);
+        let data = await response.json();
 
-<%--        if (data.result == "success") {--%>
-<%--            // console.log(data.dto)--%>
-<%--            makeDetailHtml(data.dto);--%>
-<%--        } else if (data.result == "fail") {--%>
-<%--            alert("글 상세 조회 과정에서 오류가 발생했습니다.")--%>
-<%--        }--%>
-<%--    }--%>
+        if (data.result == "success") {
+            // console.log(data.dto)
+            makeDetailHtml(data.dto);
+        } else if (data.result == "fail") {
+            alert("글 상세 조회 과정에서 오류가 발생했습니다.")
+        }
+    }
 
 <%--    function makeDetailHtml(detail) {--%>
 <%--        let boardId = detail.boardId;--%>
