@@ -56,7 +56,7 @@ public class BoardServiceImpl implements BoardService {
     @Transactional
     public BoardResultDto detailBoard(BoardParamDto boardParamDto) {
         BoardResultDto boardResultDto = new BoardResultDto();
-//        try {
+        try {
             // 조회수
             int userReadCnt = boardDao.countBoardUserRead(boardParamDto);
             System.out.println("boardId : " + boardParamDto.getBoardId());
@@ -83,10 +83,13 @@ public class BoardServiceImpl implements BoardService {
             }
             boardResultDto.setDto(boardDto);
             boardResultDto.setResult("success");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            boardResultDto.setResult("fail");
-//        }
+        } catch (Exception e) {
+            e.printStackTrace();
+            boardResultDto.setResult("fail");
+
+            // 런타임 exception이기 때문에 detailboard()를 호출한 쪽으로 넘어갈 것
+            throw new RuntimeException("detailBoard() error");
+        }
 
         return boardResultDto;
     }
