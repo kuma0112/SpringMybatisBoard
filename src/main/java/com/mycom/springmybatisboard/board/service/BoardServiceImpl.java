@@ -55,7 +55,19 @@ public class BoardServiceImpl implements BoardService {
     public BoardResultDto detailBoard(BoardParamDto boardParamDto) {
         BoardResultDto boardResultDto = new BoardResultDto();
         try {
+            // 조회수
+            int userReadCnt = boardDao.countBoardUserRead(boardParamDto);
+            System.out.println("boardId : " + boardParamDto.getBoardId());
+            System.out.println("userSeq : " + boardParamDto.getUserSeq());
+            System.out.println("userReadCnt : " + userReadCnt);
+
+            if(userReadCnt == 0) {
+                boardDao.insertBoardUserRead(boardParamDto.getBoardId(), boardParamDto.getUserSeq());
+                boardDao.updateBoardReadCount(boardParamDto.getBoardId());
+            }
+
             BoardDto boardDto = boardDao.detailBoard(boardParamDto);
+
             // 글쓴이와 보는 이가 같은지 여부
             if (boardDto.getUserSeq() == boardParamDto.getUserSeq()) { // 컨트롤러에서 세션으로부터 얻어서 보내준다
                 boardDto.setSameUser(true);

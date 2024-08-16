@@ -53,8 +53,18 @@
     </delete>
 
     <!-- 조회수 -->
-    <select id="countBoardUserRead" parameterType="map" >
+    <select id="countBoardUserRead" parameterType="map">
     <!-- 0아니면 1이 결과로 나올 것 -->
         select count(*) from board_user_read where board_id = #{boardId} and user_seq = #{userSeq}
     </select>
+
+    <insert id="insertBoardUserRead" parameterType="map">
+        insert into board_user_read (board_id, user_seq)
+            values (#{boardId}, #{userSeq});
+    </insert>
+
+    <update id="updateBoardReadCount" parameterType="int">
+        update board set read_count = read_count + 1
+            where board_id = #{boardId}
+    </update>
 </mapper>

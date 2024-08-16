@@ -3,6 +3,7 @@ package com.mycom.springmybatisboard.board.dao;
 import com.mycom.springmybatisboard.board.dto.BoardDto;
 import com.mycom.springmybatisboard.board.dto.BoardParamDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,4 +23,7 @@ public interface BoardDao {
 
     // 조회수 처리
     int countBoardUserRead(BoardParamDto boardParamDto);
+
+    void insertBoardUserRead(@Param("boardId") int boardId, @Param("userSeq") int userSeq);
+    void updateBoardReadCount(int boardId);
 }
