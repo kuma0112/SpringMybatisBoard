@@ -65,6 +65,11 @@ public class BoardServiceImpl implements BoardService {
 
             if(userReadCnt == 0) {
                 boardDao.insertBoardUserRead(boardParamDto.getBoardId(), boardParamDto.getUserSeq());
+
+                // transaction test
+                String s = null;
+                s.length(); // NPE 터질 것
+
                 boardDao.updateBoardReadCount(boardParamDto.getBoardId());
             }
 
