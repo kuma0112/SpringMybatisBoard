@@ -187,8 +187,8 @@
 <%--    let SEARCH_WORD = '';--%>
 
     window.onload = function () {
-<%--        // 글 목록--%>
-<%--        listBoard();--%>
+        // 글 목록
+        listBoard();
 
 <%--        // 글 목록 검색어 포함--%>
 <%--        document.querySelector("#btnSearchWord").onclick = function(){--%>
