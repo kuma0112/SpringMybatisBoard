@@ -5,6 +5,7 @@ import com.mycom.springmybatisboard.board.dto.BoardDto;
 import com.mycom.springmybatisboard.board.dto.BoardParamDto;
 import com.mycom.springmybatisboard.board.dto.BoardResultDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -52,6 +53,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    @Transactional
     public BoardResultDto detailBoard(BoardParamDto boardParamDto) {
         BoardResultDto boardResultDto = new BoardResultDto();
         try {
