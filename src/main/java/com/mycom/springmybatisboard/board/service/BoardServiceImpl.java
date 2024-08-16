@@ -68,11 +68,15 @@ public class BoardServiceImpl implements BoardService {
                 boardDao.insertBoardUserRead(boardParamDto.getBoardId(), boardParamDto.getUserSeq());
 
                 // transaction test
-                String s = null;
-                s.length(); // NPE 터질 것
+//                String s = null;
+//                s.length(); // NPE 터질 것
 
                 boardDao.updateBoardReadCount(boardParamDto.getBoardId());
             }
+
+            // #3 NPE를 지우고 테스트
+            // 예외가 터지지 않더라도 코드가 수행되기 때문에 무조건 롤백 발생
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 
             BoardDto boardDto = boardDao.detailBoard(boardParamDto);
 
@@ -95,7 +99,7 @@ public class BoardServiceImpl implements BoardService {
             // TransactionAspectSupport의 static method를 통해
             // 현재 트랜잭션을 관리하고 있는 TransactionStatus 객체에 접근할 수 있으며,
             // 이 객체를 사용해 현재 트랜잭션을 롤백 상태로 설정할 수 있다.
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            boardDao.updateBoardReadCount(boardParamDto.getBoardId());
 
         }
 
