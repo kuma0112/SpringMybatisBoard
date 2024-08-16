@@ -68,7 +68,8 @@
             <th>작성자</th>
             <th>작성일시</th>
             <th>조회수</th>
-        </tr>t
+        </tr>
+        </thead>
         <tbody id="boardTbody">
         </tbody>
     </table>
@@ -152,7 +153,6 @@
         </div>
     </div>
 </div>
-
 <!-- update modal -->
 <div class="modal" tabindex="-1" id="updateBoardModal">
     <div class="modal-dialog modal-lg">
@@ -182,6 +182,13 @@
 </div>
 <script src="/assets/js/util.js"></script>
 <script>
+    let LIST_ROW_COUNT = 10; // 판 페이지에 10개 로우
+    let OFFSET = 0;
+    let SEARCH_WORD = '';
+
+    let PAGE_LINK_COUNT = 10; // Pagination Button 수
+    let TOTAL_LIST_ITEM_COUNT = 0; // BackEnd 에서 계산된 값을 받아서 저장
+    let CURRENT_PAGE_INDEX = 1;
 
     window.onload = function () {
         // 글 목록
@@ -232,18 +239,17 @@
             }
         }
 
-<%--        // 글 삭제--%>
-<%--        document.querySelector("#btnBoardDeleteConfirm").onclick = function () {--%>
-<%--            alertify.confirm("삭제 확인",'이 글을 삭제하시겠습니까?',--%>
-<%--                function() {--%>
-<%--                    deleteBoard();--%>
-<%--            },--%>
-<%--                function () {--%>
-<%--                    console.log("삭제 취소");--%>
-<%--            })--%>
-<%--        }--%>
+        // 글 삭제
+        document.querySelector("#btnBoardDeleteConfirm").onclick = function(){
+            alertify.confirm('삭제 확인', '이 글을 삭제하시겠습니까?',
+                function(){
+                    deleteBoard();
+                },
+                function(){
+                    console.log("삭제 취소");
+                });
+        }
     }
-
     async function listBoard() {
         let url = "/boards/list"
         let urlParams = "?limit=" + LIST_ROW_COUNT + "&offset=" + OFFSET + "&searchWord=" + SEARCH_WORD;
@@ -273,7 +279,13 @@
             let regDtStr = makeDateStr(regDt.date.year, regDt.date.month, regDt.date.day, '.');
             let readCount = el.readCount;
 
-            listHTML += `<tr style="cursor:pointer" data-boardId=\${boardId}><td>\${boardId}</td><td>\${title}</td><td>\${userName}</td><td>\${regDtStr}</td><td>\${readCount}</td></tr>`;
+            listHTML += `<tr style="cursor:pointer" data-boardId=\${boardId}>
+                            <td>\${boardId}</td>
+                            <td>\${title}</td>
+                            <td>\${userName}</td>
+                            <td>\${regDtStr}</td>
+                            <td>\${readCount}</td>
+                        </tr>`;
         });
 
         document.querySelector("#boardTbody").innerHTML = listHTML;
@@ -284,14 +296,6 @@
             }
         });
     }
-
-    let LIST_ROW_COUNT = 10; // 한 페이지에 10개 로우
-    let OFFSET = 0;
-    let SEARCH_WORD = '';
-
-    let PAGE_LINK_COUNT = 10; // 페이지네이션 버튼 수
-    let TOTAL_LIST_ITEM_COUNT = 0; // backend에서 계산된 값을 받아서 저장
-    let CURRENT_PAGE_INDEX = 1;
 
     function addPagination() {
         makePaginationHtml(LIST_ROW_COUNT, PAGE_LINK_COUNT, CURRENT_PAGE_INDEX, TOTAL_LIST_ITEM_COUNT, paginationWrapper)
@@ -324,9 +328,6 @@
         let content = detail.content;
         let regDt = detail.regDt;
         let regDtStr = makeDateStr(regDt.date.year, regDt.date.month, regDt.date.day, '.') + ' ' + makeTimeStr(regDt.time.hour, regDt.time.minute, regDt.time.second, ':'); // for Gson Format Of LocalDateTime
-        //regDtStr = regDt; // refactorig later
-
-
         let readCount = detail.readCount;
         let sameUser = detail.sameUser;
 
@@ -391,27 +392,25 @@
         let response = await fetch(url, fetchOptions);
         let data = await response.json();
 
-        if (data.result == "success") {
-            alertify.success("글이 수정되었습니다.")
-            listBoard(data.dto);
-        } else if (data.result == "fail") {
-            alert("글 수정 과정에서 오류가 발생했습니다.")
+        if( data.result == "success" ){ // 게시판 페이지 이동
+            alertify.success('글이 수정되었습니다.');
+            listBoard();
+        }else if( data.result == "fail" ){
+            alert("글 수정 과정에서 오류가 발생했습니다.");
         }
     }
 
     async function deleteBoard() {
         let boardId = document.querySelector("#detailBoardModal").getAttribute("data-boardId");
-
         let url = "/boards/delete/" + boardId;
-
         let response = await fetch(url);
         let data = await response.json();
 
-        if (data.result == "success") {
-            alertify.success("글이 삭제되었습니다.")
-            listBoard(data.dto);
-        } else if (data.result == "fail") {
-            alert("글 삭제 과정에서 오류가 발생했습니다.")
+        if( data.result == "success" ){ // 게시판 페이지 이동
+            alertify.success('글이 삭제되었습니다.');
+            listBoard();
+        }else if( data.result == "fail" ){
+            alert("글 삭제 과정에서 오류가 발생했습니다.");
         }
     }
 
