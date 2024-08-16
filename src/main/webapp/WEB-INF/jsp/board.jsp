@@ -310,15 +310,15 @@
         }
     }
 
-<%--    function makeDetailHtml(detail) {--%>
-<%--        let boardId = detail.boardId;--%>
-<%--        let userSeq = detail.userSeq;--%>
-<%--        let userName = detail.userName;--%>
-<%--        let title = detail.title;--%>
-<%--        let content = detail.content;--%>
-<%--        let regDt = detail.regDt;--%>
-<%--        let regDtStr = makeDateStr(regDt.date.year, regDt.date.month, regDt.date.day, '.') + ' ' + makeTimeStr(regDt.time.hour, regDt.time.minute, regDt.time.second, ':'); // for Gson Format Of LocalDateTime--%>
-<%--        //regDtStr = regDt; // refactorig later--%>
+    function makeDetailHtml(detail) {
+        let boardId = detail.boardId;
+        let userSeq = detail.userSeq;
+        let userName = detail.userName;
+        let title = detail.title;
+        let content = detail.content;
+        let regDt = detail.regDt;
+        let regDtStr = makeDateStr(regDt.date.year, regDt.date.month, regDt.date.day, '.') + ' ' + makeTimeStr(regDt.time.hour, regDt.time.minute, regDt.time.second, ':'); // for Gson Format Of LocalDateTime
+        //regDtStr = regDt; // refactorig later
 
 
 <%--        let readCount = detail.readCount;--%>
