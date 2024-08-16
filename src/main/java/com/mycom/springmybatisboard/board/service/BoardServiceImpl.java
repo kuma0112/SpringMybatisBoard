@@ -6,6 +6,7 @@ import com.mycom.springmybatisboard.board.dto.BoardParamDto;
 import com.mycom.springmybatisboard.board.dto.BoardResultDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.util.List;
 
@@ -88,7 +89,14 @@ public class BoardServiceImpl implements BoardService {
             boardResultDto.setResult("fail");
 
             // 런타임 exception이기 때문에 detailboard()를 호출한 쪽으로 넘어갈 것
-            throw new RuntimeException("detailBoard() error");
+            // #1 RuntimeException 객체를 상위 호출자에게 전달
+//            throw new RuntimeException("detailBoard() error");
+
+            // TransactionAspectSupport의 static method를 통해
+            // 현재 트랜잭션을 관리하고 있는 TransactionStatus 객체에 접근할 수 있으며,
+            // 이 객체를 사용해 현재 트랜잭션을 롤백 상태로 설정할 수 있다.
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+
         }
 
         return boardResultDto;
