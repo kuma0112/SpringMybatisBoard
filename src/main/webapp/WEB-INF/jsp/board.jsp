@@ -101,57 +101,58 @@
         </div>
     </div>
 </div>
+
 <!-- detail modal -->
-<%--<div class="modal" tabindex="-1" id="detailBoardModal">--%>
-<%--    <div class="modal-dialog modal-lg">--%>
-<%--        <div class="modal-content">--%>
-<%--            <div class="modal-header">--%>
-<%--                <h4 class="modal-title">글 상세</h4>--%>
-<%--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
-<%--            </div>--%>
-<%--            <div class="modal-body">--%>
+<div class="modal" tabindex="-1" id="detailBoardModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">글 상세</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-<%--                <div class="example table-responsive">--%>
-<%--                    <table class="table">--%>
-<%--                        <tbody>--%>
-<%--                        <tr>--%>
-<%--                            <td>글번호</td>--%>
-<%--                            <td id="boardIdDetail">#</td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>제목</td>--%>
-<%--                            <td id="titleDetail">#</td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>내용</td>--%>
-<%--                            <td id="contentDetail">#</td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>작성자</td>--%>
-<%--                            <td id="userNameDetail">#</td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>작성일시</td>--%>
-<%--                            <td id="regDtDetail">#</td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>조회수</td>--%>
-<%--                            <td id="readCountDetail">#</td>--%>
-<%--                        </tr>--%>
-<%--                        </tbody>--%>
-<%--                    </table>--%>
-<%--                </div>--%>
+                <div class="example table-responsive">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>글번호</td>
+                            <td id="boardIdDetail">#</td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td id="titleDetail">#</td>
+                        </tr>
+                        <tr>
+                            <td>내용</td>
+                            <td id="contentDetail">#</td>
+                        </tr>
+                        <tr>
+                            <td>작성자</td>
+                            <td id="userNameDetail">#</td>
+                        </tr>
+                        <tr>
+                            <td>작성일시</td>
+                            <td id="regDtDetail">#</td>
+                        </tr>
+                        <tr>
+                            <td>조회수</td>
+                            <td id="readCountDetail">#</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button id="btnBoardUpdateForm" class="btn btn-sm btn-primary btn-outline" data-bs-dismiss="modal"
+                        type="button">글 수정하기
+                </button>
+                <button id="btnBoardDeleteConfirm" class="btn btn-sm btn-warning btn-outline" data-bs-dismiss="modal"
+                        type="button">글 삭제하기
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<%--                <button id="btnBoardUpdateForm" class="btn btn-sm btn-primary btn-outline" data-bs-dismiss="modal"--%>
-<%--                        type="button">글 수정하기--%>
-<%--                </button>--%>
-<%--                <button id="btnBoardDeleteConfirm" class="btn btn-sm btn-warning btn-outline" data-bs-dismiss="modal"--%>
-<%--                        type="button">글 삭제하기--%>
-<%--                </button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 <!-- update modal -->
 <%--<div class="modal" tabindex="-1" id="updateBoardModal">--%>
 <%--    <div class="modal-dialog modal-lg">--%>
