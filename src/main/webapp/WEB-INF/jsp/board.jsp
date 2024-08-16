@@ -182,13 +182,6 @@
 <%--</div>--%>
 <script src="/assets/js/util.js"></script>
 <script>
-    let LIST_ROW_COUNT = 10; // 한 페이지에 10개 로우
-    let OFFSET = 0;
-    let SEARCH_WORD = '';
-
-    let PAGE_LINK_COUNT = 10; // 페이지네이션 버튼 수
-    let TOTAL_LIST_ITEM_COUNT = 0; // backend에서 계산된 값을 받아서 저장
-    let CURRENT_PAGE_INDEX = 1;
 
     window.onload = function () {
         // 글 목록
@@ -258,10 +251,9 @@
         let data = await response.json();
 
         if( data.result == "success" ){ // 게시판 페이지 이동
-            //console.log(data);
-            // console.log(data.list);
             makeListHtml(data.list);
-            console.log(data.count)
+            TOTAL_LIST_ITEM_COUNT = data.count; // 전체 게시글 수
+            addPagination();
         }else if( data.result == "fail" ){
             alert("글 조회과정에서 오류가 발생했습니다.");
         }
@@ -292,6 +284,18 @@
 <%--            }--%>
 <%--        });--%>
 <%--    }--%>
+
+    let LIST_ROW_COUNT = 10; // 한 페이지에 10개 로우
+    let OFFSET = 0;
+    let SEARCH_WORD = '';
+
+    let PAGE_LINK_COUNT = 10; // 페이지네이션 버튼 수
+    let TOTAL_LIST_ITEM_COUNT = 0; // backend에서 계산된 값을 받아서 저장
+    let CURRENT_PAGE_INDEX = 1;
+
+    function addPagination() {
+        makePaginationHtml(LIST_ROW_COUNT, PAGE_LINK_COUNT, CURRENT_PAGE_INDEX, TOTAL_LIST_ITEM_COUNT, paginationWrapper)
+    }
 
 <%--    async function detailBoard(boardId) {--%>
 <%--        let url = "/boards/detail/" + boardId;--%>
