@@ -194,12 +194,12 @@
         // 글 목록
         listBoard();
 
-<%--        // 글 목록 검색어 포함--%>
-<%--        document.querySelector("#btnSearchWord").onclick = function(){--%>
-<%--            SEARCH_WORD = document.querySelector("#inputSearchWord").value;--%>
+        // 글 목록 검색어 포함
+        document.querySelector("#btnSearchWord").onclick = function(){
+            SEARCH_WORD = document.querySelector("#inputSearchWord").value;
 
-<%--            listBoard();--%>
-<%--        }--%>
+            listBoard();
+        }
 
         // 글 등록 모달
         document.querySelector("#btnInsertPage").onclick = function () {
