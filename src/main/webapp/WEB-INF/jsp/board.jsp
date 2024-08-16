@@ -297,6 +297,12 @@
         makePaginationHtml(LIST_ROW_COUNT, PAGE_LINK_COUNT, CURRENT_PAGE_INDEX, TOTAL_LIST_ITEM_COUNT, paginationWrapper)
     }
 
+    function movePage(pageIndex) {
+        OFFSET = (pageIndex -1) * LIST_ROW_COUNT;
+        CURRENT_PAGE_INDEX = pageIndex;
+        listBoard();
+    }
+
     async function detailBoard(boardId) {
         let url = "/boards/detail/" + boardId;
         let response = await fetch(url);
