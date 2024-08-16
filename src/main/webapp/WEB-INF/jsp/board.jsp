@@ -345,28 +345,28 @@
         modal.show();
     }
 
-<%--    async function insertBoard() {--%>
-<%--        let urlParams = new URLSearchParams({--%>
-<%--            title: document.querySelector("#titleInsert").value,--%>
-<%--            content: document.querySelector("#contentInsert").value--%>
-<%--        });--%>
-<%--        let url = "/boards/insert";--%>
+    async function insertBoard() {
+        let urlParams = new URLSearchParams({
+            title: document.querySelector("#titleInsert").value,
+            content: document.querySelector("#contentInsert").value
+        });
+        let url = "/boards/insert";
 
-<%--        let fetchOptions = {--%>
-<%--            method: 'POST',--%>
-<%--            body: urlParams--%>
-<%--        }--%>
+        let fetchOptions = {
+            method: 'POST',
+            body: urlParams
+        }
 
-<%--        let response = await fetch(url, fetchOptions);--%>
-<%--        let data = await response.json();--%>
+        let response = await fetch(url, fetchOptions);
+        let data = await response.json();
 
-<%--        if (data.result == "success") {--%>
-<%--            alertify.success("글이 등록되었습니다.")--%>
-<%--            listBoard(data.dto);--%>
-<%--        } else if (data.result == "fail") {--%>
-<%--            alert("글 등록 과정에서 오류가 발생했습니다.")--%>
-<%--        }--%>
-<%--    }--%>
+        if (data.result == "success") {
+            alertify.success("글이 등록되었습니다.")
+            listBoard(data.dto);
+        } else if (data.result == "fail") {
+            alert("글 등록 과정에서 오류가 발생했습니다.")
+        }
+    }
 
 <%--    async function updateBoard() {--%>
 <%--        let boardId = document.querySelector("#updateBoardModal").getAttribute("data-boardId");--%>
