@@ -247,21 +247,21 @@
 <%--        }--%>
     }
 
-<%--    async function listBoard() {--%>
-<%--        let url = "/boards/list"--%>
-<%--        let urlParams = "?limit=" + LIST_ROW_COUNT + "&offset=" + OFFSET + "&searchWord=" + SEARCH_WORD;--%>
-<%--        let response = await fetch(url + urlParams);--%>
-<%--        let data = await response.json();--%>
+    async function listBoard() {
+        let url = "/boards/list"
+        let urlParams = "?limit=" + LIST_ROW_COUNT + "&offset=" + OFFSET + "&searchWord=" + SEARCH_WORD;
+        let response = await fetch(url + urlParams);
+        let data = await response.json();
 
-<%--        if( data.result == "success" ){ // 게시판 페이지 이동--%>
-<%--            //console.log(data);--%>
-<%--            // console.log(data.list);--%>
-<%--            makeListHtml(data.list);--%>
-<%--            console.log(data.count)--%>
-<%--        }else if( data.result == "fail" ){--%>
-<%--            alert("글 조회과정에서 오류가 발생했습니다.");--%>
-<%--        }--%>
-<%--    }--%>
+        if( data.result == "success" ){ // 게시판 페이지 이동
+            //console.log(data);
+            // console.log(data.list);
+            makeListHtml(data.list);
+            console.log(data.count)
+        }else if( data.result == "fail" ){
+            alert("글 조회과정에서 오류가 발생했습니다.");
+        }
+    }
 
 <%--    function makeListHtml(list) {--%>
 <%--        let listHTML = ``;--%>
