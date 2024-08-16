@@ -259,31 +259,31 @@
         }
     }
 
-<%--    function makeListHtml(list) {--%>
-<%--        let listHTML = ``;--%>
+    function makeListHtml(list) {
+        let listHTML = ``;
 
-<%--        list.forEach(el => {--%>
-<%--            let boardId = el.boardId;--%>
-<%--            let userName = el.userName;--%>
-<%--            let title = el.title;--%>
-<%--            let content = el.content;--%>
-<%--            let regDt = el.regDt;--%>
-<%--            // localDateTime 객체 -> json 처리 결과물이 gson, jackson이 다르다.--%>
-<%--            console.log(regDt)--%>
-<%--            let regDtStr = makeDateStr(regDt.date.year, regDt.date.month, regDt.date.day, '.');--%>
-<%--            let readCount = el.readCount;--%>
+        list.forEach(el => {
+            let boardId = el.boardId;
+            let userName = el.userName;
+            let title = el.title;
+            let content = el.content;
+            let regDt = el.regDt;
+            // localDateTime 객체 -> json 처리 결과물이 gson, jackson이 다르다.
+            console.log(regDt)
+            let regDtStr = makeDateStr(regDt.date.year, regDt.date.month, regDt.date.day, '.');
+            let readCount = el.readCount;
 
-<%--            listHTML += `<tr style="cursor:pointer" data-boardId=\${boardId}><td>\${boardId}</td><td>\${title}</td><td>\${userName}</td><td>\${regDtStr}</td><td>\${readCount}</td></tr>`;--%>
-<%--        });--%>
+            listHTML += `<tr style="cursor:pointer" data-boardId=\${boardId}><td>\${boardId}</td><td>\${title}</td><td>\${userName}</td><td>\${regDtStr}</td><td>\${readCount}</td></tr>`;
+        });
 
-<%--        document.querySelector("#boardTbody").innerHTML = listHTML;--%>
-<%--        document.querySelectorAll("#boardTbody tr").forEach(el => {--%>
-<%--            el.onclick = function () {--%>
-<%--                let boardId = this.getAttribute("data-boardId");--%>
-<%--                detailBoard(boardId);  // 여기에서 boardId를 함수에 전달--%>
-<%--            }--%>
-<%--        });--%>
-<%--    }--%>
+        document.querySelector("#boardTbody").innerHTML = listHTML;
+        document.querySelectorAll("#boardTbody tr").forEach(el => {
+            el.onclick = function () {
+                let boardId = this.getAttribute("data-boardId");
+                detailBoard(boardId);  // 여기에서 boardId를 함수에 전달
+            }
+        });
+    }
 
     let LIST_ROW_COUNT = 10; // 한 페이지에 10개 로우
     let OFFSET = 0;
