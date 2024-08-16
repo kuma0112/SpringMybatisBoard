@@ -321,29 +321,29 @@
         //regDtStr = regDt; // refactorig later
 
 
-<%--        let readCount = detail.readCount;--%>
-<%--        let sameUser = detail.sameUser;--%>
+        let readCount = detail.readCount;
+        let sameUser = detail.sameUser;
 
 
-<%--        document.querySelector("#detailBoardModal").setAttribute("data-boardId", boardId);--%>
-<%--        document.querySelector("#boardIdDetail").innerHTML = "#" + boardId;--%>
-<%--        document.querySelector("#titleDetail").innerHTML = title;--%>
-<%--        document.querySelector("#contentDetail").innerHTML = content;--%>
-<%--        document.querySelector("#userNameDetail").innerHTML = userName;--%>
-<%--        document.querySelector("#regDtDetail").innerHTML = regDtStr;--%>
-<%--        document.querySelector("#readCountDetail").innerHTML = readCount;--%>
-<%--        if (sameUser) {--%>
-<%--            document.querySelector("#btnBoardUpdateForm").style.display = "inline-block";--%>
-<%--            document.querySelector("#btnBoardDeleteConfirm").style.display = "inline-block";--%>
-<%--        } else {--%>
-<%--            document.querySelector("#btnBoardUpdateForm").style.display = "none";--%>
-<%--            document.querySelector("#btnBoardDeleteConfirm").style.display = "none";--%>
-<%--        }--%>
+        document.querySelector("#detailBoardModal").setAttribute("data-boardId", boardId);
+        document.querySelector("#boardIdDetail").innerHTML = "#" + boardId;
+        document.querySelector("#titleDetail").innerHTML = title;
+        document.querySelector("#contentDetail").innerHTML = content;
+        document.querySelector("#userNameDetail").innerHTML = userName;
+        document.querySelector("#regDtDetail").innerHTML = regDtStr;
+        document.querySelector("#readCountDetail").innerHTML = readCount;
+        if (sameUser) {
+            document.querySelector("#btnBoardUpdateForm").style.display = "inline-block";
+            document.querySelector("#btnBoardDeleteConfirm").style.display = "inline-block";
+        } else {
+            document.querySelector("#btnBoardUpdateForm").style.display = "none";
+            document.querySelector("#btnBoardDeleteConfirm").style.display = "none";
+        }
 
-<%--        //  bootstrap 5 modal show--%>
-<%--        let modal = new bootstrap.Modal(document.querySelector("#detailBoardModal"), {keyboard: false});--%>
-<%--        modal.show();--%>
-<%--    }--%>
+        //  bootstrap 5 modal show
+        let modal = new bootstrap.Modal(document.querySelector("#detailBoardModal"), {keyboard: false});
+        modal.show();
+    }
 
 <%--    async function insertBoard() {--%>
 <%--        let urlParams = new URLSearchParams({--%>
