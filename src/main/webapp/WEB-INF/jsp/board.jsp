@@ -214,19 +214,19 @@
             }
         }
 
-<%--        // 글 수정 모달--%>
-<%--        document.querySelector("#btnBoardUpdateForm").onclick = function () {--%>
-<%--            // 수정 글 boardId--%>
-<%--            let boardId = document.querySelector("#detailBoardModal").getAttribute("data-boardId");--%>
-<%--            document.querySelector("#updateBoardModal").setAttribute("data-boardId", boardId);--%>
+        // 글 수정 모달
+        document.querySelector("#btnBoardUpdateForm").onclick = function () {
+            // 수정 글 boardId
+            let boardId = document.querySelector("#detailBoardModal").getAttribute("data-boardId");
+            document.querySelector("#updateBoardModal").setAttribute("data-boardId", boardId);
 
-<%--            // 글 제목, 내용은 detailModal 로부터--%>
-<%--            document.querySelector("#titleUpdate").value = document.querySelector("#titleDetail").innerHTML;--%>
-<%--            document.querySelector("#contentUpdate").value = document.querySelector("#contentDetail").innerHTML;--%>
+            // 글 제목, 내용은 detailModal 로부터
+            document.querySelector("#titleUpdate").value = document.querySelector("#titleDetail").innerHTML;
+            document.querySelector("#contentUpdate").value = document.querySelector("#contentDetail").innerHTML;
 
-<%--            let modal = new bootstrap.Modal(document.querySelector("#updateBoardModal"), {keyboard: false});--%>
-<%--            modal.show();--%>
-<%--        }--%>
+            let modal = new bootstrap.Modal(document.querySelector("#updateBoardModal"), {keyboard: false});
+            modal.show();
+        }
 
 <%--        // 글 수정--%>
 <%--        document.querySelector("#btnBoardUpdate").onclick = function () {--%>
