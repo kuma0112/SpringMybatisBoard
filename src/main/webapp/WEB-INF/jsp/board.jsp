@@ -180,7 +180,7 @@
 <%--        </div>--%>
 <%--    </div>--%>
 <%--</div>--%>
-<%--<script src="/assets/js/util.js"></script>--%>
+<script src="/assets/js/util.js"></script>
 <%--<script>--%>
 <%--    let LIST_ROW_COUNT = 10;--%>
 <%--    let OFFSET = 0;--%>
